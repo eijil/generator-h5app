@@ -1,4 +1,4 @@
-#generator-h5app
+# generator-h5app
 > Scaffold out a HTML5 web app
 
 ## Features
@@ -16,5 +16,6 @@
 * run `npm install` to install dependencies.
 * run `npm start` or `gulp:serve` to preview and watch for changes.
 * run `gulp` to build for production.
+* Run `gulp serve:dist` to preview the production build
 
 ## rem

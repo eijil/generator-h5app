@@ -1,6 +1,6 @@
 {
   "name": "generator-h5app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scaffold out a Html5 web app",
   "main": "index.js",
   "scripts": {
@@ -10,15 +10,24 @@
     "app"
   ],
   "keywords": [
+    "yeoman-generator",
     "generator",
     "h5"
   ],
-  "author": "jiel",
+  "author": "jiel1988",
   "license": "ISC",
   "dependencies": {
     "yeoman-generator": "^1.1.1"
   },
   "devDependencies": {
     "yosay": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eijil/generator-h5app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eijil/generator-h5app/issues"
+  },
+  "homepage": "https://github.com/eijil/generator-h5app#readme"
 }
