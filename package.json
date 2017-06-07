@@ -1,0 +1,24 @@
+{
+  "name": "generator-h5app",
+  "version": "1.0.0",
+  "description": "Scaffold out a Html5 web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "generator",
+    "h5"
+  ],
+  "author": "jiel",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  },
+  "devDependencies": {
+    "yosay": "^2.0.0"
+  }
+}
