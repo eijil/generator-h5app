@@ -14,7 +14,7 @@ module.exports = class extends Generator {
 
     prompting() {
 
-        this.log(yosay('\'Allo \'allo! yeoman-generator H5APP.'));
+        this.log(yosay('yeoman-generator h5app.'));
 
         var prompt = [{
             type: 'input',
@@ -67,6 +67,6 @@ module.exports = class extends Generator {
     }
 
     end() {
-        this.log(chalk.yellow.green('install success!'));
+        this.log(chalk.yellow.green('install success! run npm install to install dependencies'));
     }
 };
