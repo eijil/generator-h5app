@@ -4,6 +4,7 @@
   "description": "generator-h5app",
   "main": "gulpfile.js",
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.12",
     "del": "^2.2.2",
     "gulp": "^3.9.1",

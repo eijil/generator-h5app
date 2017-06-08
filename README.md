@@ -12,9 +12,9 @@
 ## Getting Started
 * make sure you have [yo](https://github.com/yeoman/yo) installed: `npm install -g yo`.
 * Install the generator: `npm install -g generator-h5app`.
-* Run yo h5app to scaffold your h5 app.
+* Run `yo h5app` to scaffold your html5 web app.
 * run `npm install` to install dependencies.
-* run `npm start` or `gulp:serve` to preview and watch for changes.
+* run `npm start` or `gulp serve` to preview and watch for changes.
 * run `gulp` to build for production.
 * Run `gulp serve:dist` to preview the production build
 
