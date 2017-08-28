@@ -3,6 +3,10 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const runSequence = require('run-sequence');
+
+const source = require('vinyl-source-stream');
+const browserify = require('browserify');
+const babelify = require('babelify');
 //const wiredep = require('wiredep').stream;
 
 const $ = gulpLoadPlugins();
@@ -31,17 +35,17 @@ gulp.task('styles', () => {
 })
 
 gulp.task('scripts', () => {
-    return gulp.src('src/js/**/*.js')
-        .pipe($.plumber())
-        .pipe($.if(dev, $.sourcemaps.init()))
-        .pipe($.babel({
-            presets: ['es2015']
-        }))
-        .pipe($.if(dev, $.sourcemaps.write('.')))
+
+    return browserify("src/js/index.js", {
+            debug: true
+        })
+        .transform("babelify",{ "presets": ["es2015"] })
+        .bundle()
+        .pipe(source('index.js'))
         .pipe(gulp.dest('.tmp/js'))
         .pipe(reload({
             stream: true
-        }));
+        }))
 });
 
 function lint(files) {
@@ -116,7 +120,7 @@ gulp.task('serve', () => {
 gulp.task('serve:dist', ['default'], () => {
     browserSync.init({
         notify: false,
-        port: 9000,
+        port: port,
         server: {
             baseDir: ['dist']
         }

@@ -21,10 +21,26 @@ module.exports = class extends Generator {
             name: 'projectName',
             message: 'you projectName ?',
             default: this.appname
-        }];
+        },
+        {
+          type: 'list',
+          name: 'type',
+          message: 'choose a template',
+          choices:[{
+            value : 'default',
+            name  : ''
+          },
+          {
+            value :'phaser',
+            name  : ''
+          }
+        ]
+        }
+      ];
 
         return this.prompt(prompt).then(answers => {
             this.projectName = answers.projectName;
+            this.type = answers.type;
         });
     }
 
@@ -35,13 +51,15 @@ module.exports = class extends Generator {
         this._writingPackageJSON();
     }
     _writingFiles(){
+
       this.fs.copyTpl(
-          this.templatePath('src'),
+          this.templatePath(this.type + '/src'),
           this.destinationPath('src'),
           this
       );
     }
     _writingGulpfile() {
+      
         this.fs.copyTpl(
             this.templatePath('gulpfile.js'),
             this.destinationPath('gulpfile.js'), {
@@ -50,6 +68,13 @@ module.exports = class extends Generator {
                 version: this.pkg.version
             }
         );
+
+        this.fs.copyTpl(
+            this.templatePath('gitignore'),
+            this.destinationPath('.gitignore'),
+            this
+        );
+
     }
     _writingBower(){
       this.fs.copyTpl(
@@ -60,13 +85,15 @@ module.exports = class extends Generator {
     }
     _writingPackageJSON(){
       this.fs.copyTpl(
-        this.templatePath('_package.json'),
+        this.templatePath(this.type +'/_package.json'),
         this.destinationPath('package.json'),
         this
       );
     }
 
-    end() {
-        this.log(chalk.yellow.green('install success! run npm install to install dependencies'));
+    install(){
+      this.installDependencies({bower: true});
     }
+
+
 };

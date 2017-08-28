@@ -1,6 +1,6 @@
 {
   "name": "generator-h5app",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Scaffold out a Html5 web app",
   "main": "index.js",
   "scripts": {

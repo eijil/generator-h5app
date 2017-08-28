@@ -2,7 +2,7 @@
 > Scaffold out a HTML5 web app
 
 ## Features
-* enable [ES2015 features](https://babeljs.io/docs/learn-es2015/) using [Babel](https://babeljs.io)
+* enable [ES2015 features](https://babeljs.io/docs/learn-es2015/) using browserify & babelify
 * using rem layout width [amfe\lib-flexible](https://github.com/amfe/lib-flexible)
 * CSS Autoprefixing
 * preview server with BrowserSync
