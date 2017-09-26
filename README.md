@@ -8,6 +8,7 @@
 * preview server with BrowserSync
 * Automagically compile Sass with [libsass](http://libsass.org)
 * Automagically lint your scripts
+* templates : h5web(default) & phaser (h5 game framework) 
 
 ## Getting Started
 * make sure you have [yo](https://github.com/yeoman/yo) installed: `npm install -g yo`.

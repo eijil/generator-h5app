@@ -12,8 +12,9 @@ const babelify = require('babelify');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-let dev = true;
-let port = 9000;
+const dev = true;
+const port = 9000;
+const compress = true;
 
 gulp.task('styles', () => {
     return gulp.src('src/css/*.scss')
@@ -71,11 +72,9 @@ gulp.task('html', ['styles', 'scripts'], () => {
         .pipe($.useref({
             searchPath: ['.tmp', 'src', '.']
         }))
-        .pipe($.if(/\.js$/, $.uglify({
-            compress: {
-                drop_console: true
-            }
-        })))
+        .pipe($.if(/\.js$/,
+          $.if(compress,$.uglify())
+        ))
         .pipe($.if(/\.css$/, $.cssnano({
             safe: true,
             autoprefixer: false
@@ -89,11 +88,16 @@ gulp.task('html', ['styles', 'scripts'], () => {
 //   .pipe(gulp.dest('src'));
 // })
 
+gulp.task('img',()=>{
+  return gulp.src('src/img/*')
+  .pipe(gulp.dest('dist/img'));
+})
+
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-    runSequence(['clean'], ['styles', 'scripts'], () => {
+    runSequence(['clean'], ['styles', 'scripts','img'], () => {
         browserSync.init({
             notify: false,
             port: port,
